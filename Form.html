@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+	<script src="Jquery.json"></script>
+	</head>
+	<style>
+		body{
+			margin: 0 auto;
+			background-color: aquamarine;
+			text-align: center;
+		}
+		input{
+			margin: 10px 0;
+			padding: 5px;
+			border: 1px solid gray;
+			border-radius: 4px 4px;
+		}
+		form{
+			text-align: center;
+			color: burlywood;
+			background-color: #2012D7;
+			margin: 50px 35%;
+			border-radius: 50px 50px;
+			padding: 20px;
+			height: auto;
+		}
+		button{
+			padding: 10px;
+		}
+		button:hover {
+			color: greenyellow;
+			background-color: lime;
+		}
+		span{
+			color: wheat;
+			margin-right:10px; 
+		}
+		table {
+			margin: 0 auto;
+			width: 50%;
+			background-color: burlywood;
+		}
+	</style>
+<body>
+	<form name="main-form" method="post" action="Form.html">
+   <span>Name </span><input type="text" id="name" placeholder="Name..." required><br>
+   <span>Phone number </span><input type="text" id="phone" placeholder="Phone number..." required><br>
+   <span>Email </span><input type="email"id="email"placeholder="Email..."required><br>
+   <span>MSV </span><input type="type"id="msv"placeholder="MSV..."required><br>
+   <span>Date </span><input type="date"id="date"	required><br>
+   <span>Gender </span>
+		<input type="radio"name="gender" value="male"	required>male
+		<input type="radio"name="gender" value="female"	required>female<br>
+	<span>Hometown</span>
+		<select id="hometown">
+			<option>Ha Noi</option>
+			<option>HCM</option>
+			<option>DN</option>
+		</select><br>
+  <input type="submit"value="Subscribe" onClick="addClick()">
+</form>
+<table border='1'>
+	<tr>
+		<th>Name</th>
+		<th>Phone</th>
+		<th>Email</th>
+		<th>MSV</th>
+		<th>Date</th>
+		<th>Gender</th>
+		<th>HomeTown</th>
+	</tr>
+
+</table>
+	<script>
+		
+		function addClick(){
+			var name=$('#name').val();
+			var phone=$('#phone').val();
+			var email=$('#email').val();
+			var msv=$('#msv').val();
+			var date=$('#date').val();
+			var gender=$('gender').val();
+			var homeTown=$('#hometown').val();
+			var st=new Array();
+			if(name!=""){
+				st.push(["name","phone","email","msv","date","gender","homeTown"]);
+				st.push([name,phone,email,msv,date,gender,homeTown]);
+				alert("Add student is successful !"+name+phone+email+msv+date+gender+homeTown);
+				for(var i = 0; i < st.length; i++){
+					document.write("<tr>");
+					for(var j = 0; j < st[i].length; j++){
+						document.write("<td>" + st[i][j] + "</td>");
+					}
+					document.write("</tr>");
+				}
+			}
+		};
+	</script>
+</body>
+</html>
